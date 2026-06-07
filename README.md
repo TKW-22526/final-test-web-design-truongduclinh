@@ -8,11 +8,27 @@
 .
 ├── .git/
 ├── assets/
+│   ├── images/
+│   │   ├── bongloaia.JPG
+│   │   ├── bongloaib.JPG
+│   │   ├── bongchuyena.JPG
+│   │   ├── bongchuyenb.JPG
+│   │   ├── GiayBongDa.jpg
+│   │   ├── GiayBongChuyen.jpg
+│   │   ├── logo.jpg
+│   │   └── logo-duc-linh.svg
 │   └── thesis/
 │       └── template_thesis.dotx
 ├── css/
+│   ├── style.css
+│   └── responsive.css
 ├── html/
+│   ├── chi-tiet.html
+│   ├── gioi-thieu.html
+│   ├── lien-he.html
+│   └── san-pham.html
 ├── js/
+│   └── script.js
 ├── index.html
 └── README.md
 ```
@@ -37,7 +53,9 @@ Thư mục dùng để lưu trữ các tài nguyên dùng chung cho dự án, v�
 - Mẫu báo cáo
 - Các tập tin hỗ trợ khác
 
-Trong đó, mẫu báo cáo kết thúc môn được cung cấp tại:
+Trong đó, thư mục `assets/images/` chứa logo và hình ảnh sản phẩm.
+
+Mẫu báo cáo kết thúc môn được lưu tại:
 
 ```text
 assets/thesis/template_thesis.dotx
@@ -66,15 +84,16 @@ Các tập tin trong thư mục này dùng để thiết kế bố cục, màu s
 
 Thư mục chứa các trang HTML thành phần của website.
 
-Ví dụ:
+Các trang hiện có:
 
 ```text
-html/about.html
-html/contact.html
-html/product.html
+html/chi-tiet.html
+html/gioi-thieu.html
+html/lien-he.html
+html/san-pham.html
 ```
 
-Các trang HTML trong thư mục này được sử dụng để xây dựng các nội dung riêng biệt của website ngoài trang chính `index.html`.
+Những trang này tạo các nội dung riêng biệt ngoài trang chính `index.html`.
 
 ---
 
@@ -82,26 +101,19 @@ Các trang HTML trong thư mục này được sử dụng để xây dựng cá
 
 Thư mục chứa các tập tin JavaScript dùng để xử lý tương tác trên website.
 
-Ví dụ:
+Hiện tại dự án có:
 
 ```text
-js/main.js
-js/validation.js
+js/script.js
 ```
 
-Các tập tin JavaScript có thể dùng để:
-
-- Xử lý sự kiện người dùng
-- Kiểm tra dữ liệu nhập
-- Tạo hiệu ứng tương tác
-- Thao tác với DOM
-- Điều khiển các thành phần động trên website
+Tập tin này dùng để tạo danh sách sản phẩm, xử lý nút mua, và điều khiển liên kết chi tiết sản phẩm.
 
 ---
 
 ### `index.html`
 
-Đây là tập tin trang chủ của website.
+Đây là trang chủ của website.
 
 Khi bật GitHub Pages, tập tin `index.html` sẽ là trang mặc định được hiển thị đầu tiên khi người dùng truy cập vào website.
 

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<title>Liên hệ</title>
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+	<header>
+		<div class="site-brand">
+			<div class="logo"><img src="../assets/images/logo-duc-linh.svg" alt="Shop Thể Thao logo"></div>
+			<div>
+				<h2 style="margin:0; font-size:20px">Liên hệ</h2>
+			</div>
+		</div>
+
+		<nav>
+			<ul class="menu">
+				<li><a href="../index.html">Trang chủ</a></li>
+				<li><a href="san-pham.html">Sản phẩm</a></li>
+				<li><a href="gioi-thieu.html">Giới thiệu</a></li>
+				<li><a href="lien-he.html">Liên hệ</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main class="container py-4">
+		<section class="detail-card">
+			<form id="contactForm">
+				<div>
+					<label>Họ và tên</label>
+					<input type="text" id="name" class="form-control" required>
+				</div>
+				<div>
+					<label>Email</label>
+					<input type="email" id="email" class="form-control" required>
+				</div>
+				<div>
+					<label>Nội dung</label>
+					<textarea id="message" class="form-control" rows="5" required></textarea>
+				</div>
+				<div style="margin-top:12px;">
+					<button type="submit" class="buy-btn">Gửi</button>
+				</div>
+			</form>
+		</section>
+	</main>
+
+	<script>
+		document.getElementById('contactForm').addEventListener('submit', function(e){
+			e.preventDefault();
+			alert('Cảm ơn ' + document.getElementById('name').value + '. Chúng tôi đã nhận được tin nhắn.');
+			this.reset();
+		});
+	</script>
+</body>
+</html>

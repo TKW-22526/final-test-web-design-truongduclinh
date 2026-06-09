@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Giao diện Quản trị</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="site-brand">
+                <div class="logo"><img src="../assets/images/logo-duc-linh.svg" alt="Shop Thể Thao logo"></div>
+                <div>
+                    <h2 style="margin:0; font-size:20px">Admin Dashboard</h2>
+                    <p style="margin:0; font-size:14px; color:#cbd5e1">Quản lý sản phẩm, danh mục và tồn kho.</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="../index.html">Trang chủ</a></li>
+                    <li><a href="san-pham.html">Sản phẩm</a></li>
+                    <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+                    <li><a href="lien-he.html">Liên hệ</a></li>
+                    <li><a href="admin.html">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container admin-dashboard">
+        <aside class="admin-sidebar">
+            <div class="admin-summary-card">
+                <div class="summary-item">
+                    <span>Sản phẩm</span>
+                    <strong>06</strong>
+                </div>
+                <div class="summary-item">
+                    <span>Danh mục</span>
+                    <strong>04</strong>
+                </div>
+                <div class="summary-item">
+                    <span>Tồn kho</span>
+                    <strong>128</strong>
+                </div>
+                <div class="summary-item">
+                    <span>Đơn mới</span>
+                    <strong>08</strong>
+                </div>
+            </div>
+            <nav class="admin-nav">
+                <a href="#overview">Tổng quan</a>
+                <a href="#products">Quản lý sản phẩm</a>
+                <a href="#inventory">Cập nhật kho</a>
+            </nav>
+        </aside>
+
+        <section class="admin-main">
+            <div class="section-title">
+                <h2>Bảng điều khiển quản trị</h2>
+                <p>Phân hệ dành riêng cho Admin để quản lý danh mục, sản phẩm và số lượng tồn kho.</p>
+            </div>
+
+            <div class="admin-cards">
+                <div class="admin-mini-card">
+                    <h3>Doanh thu ước tính</h3>
+                    <strong>142.000k</strong>
+                </div>
+                <div class="admin-mini-card">
+                    <h3>Đơn chờ xử lý</h3>
+                    <strong>8</strong>
+                </div>
+                <div class="admin-mini-card">
+                    <h3>Kho đang thiếu</h3>
+                    <strong>2</strong>
+                </div>
+            </div>
+
+            <section class="admin-panel" id="overview">
+                <div class="admin-actions">
+                    <input class="admin-search" id="searchInput" type="text" placeholder="Tìm kiếm sản phẩm...">
+                    <button class="btn-primary" onclick="resetSearch()">Làm mới</button>
+                </div>
+                <h3>Danh sách sản phẩm</h3>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Mã</th>
+                            <th>Sản phẩm</th>
+                            <th>Danh mục</th>
+                            <th>Giá (k)</th>
+                            <th>Tồn kho</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTableBody"></tbody>
+                </table>
+            </section>
+
+            <section class="admin-panel" id="inventory">
+                <h3>Cập nhật danh mục và kho</h3>
+                <p>Thêm hoặc chỉnh sửa sản phẩm, danh mục và số lượng tồn kho ngay trên giao diện admin.</p>
+                <form id="adminForm" class="admin-form">
+                    <label for="productId">Mã sản phẩm</label>
+                    <input type="text" id="productId" placeholder="VD: 07" required>
+
+                    <label for="productName">Tên sản phẩm</label>
+                    <input type="text" id="productName" placeholder="Bóng tập luyện..." required>
+
+                    <label for="productCategory">Danh mục</label>
+                    <select id="productCategory">
+                        <option value="Bóng đá">Bóng đá</option>
+                        <option value="Bóng chuyền">Bóng chuyền</option>
+                        <option value="Giày">Giày</option>
+                        <option value="Phụ kiện">Phụ kiện</option>
+                    </select>
+
+                    <label for="productPrice">Giá (k)</label>
+                    <input type="number" id="productPrice" min="0" value="0" required>
+
+                    <label for="productStock">Số lượng tồn kho</label>
+                    <input type="number" id="productStock" min="0" value="0" required>
+
+                    <label for="productNote">Ghi chú</label>
+                    <textarea id="productNote" rows="4" placeholder="Ghi chú nội bộ"></textarea>
+
+                    <button type="submit" class="btn-primary">Lưu thay đổi</button>
+                </form>
+            </section>
+        </section>
+    </main>
+
+    <script>
+        const adminProducts = [
+            {id: '01', name: 'Bóng đá loại A', category: 'Bóng đá', price: 290, stock: 15},
+            {id: '02', name: 'Bóng đá loại B', category: 'Bóng đá', price: 350, stock: 22},
+            {id: '03', name: 'Bóng chuyền loại A', category: 'Bóng chuyền', price: 320, stock: 18},
+            {id: '04', name: 'Bóng chuyền loại B', category: 'Bóng chuyền', price: 380, stock: 10},
+            {id: '05', name: 'Giày Bóng Đá', category: 'Giày', price: 650, stock: 9},
+            {id: '06', name: 'Giày Bóng Chuyền', category: 'Giày', price: 590, stock: 14}
+        ];
+
+        const productBody = document.getElementById('productsTableBody');
+        const searchInput = document.getElementById('searchInput');
+
+        function renderProducts(products) {
+            productBody.innerHTML = products.map(product => `
+                <tr>
+                    <td>${product.id}</td>
+                    <td>${product.name}</td>
+                    <td><span class="badge">${product.category}</span></td>
+                    <td>${product.price}</td>
+                    <td>${product.stock}</td>
+                    <td>
+                        <button class="btn btn-sm btn-secondary" onclick="editProduct('${product.id}')">Sửa</button>
+                        <button class="btn btn-sm btn-outline-secondary" onclick="removeProduct('${product.id}')">Xóa</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function filterProducts(query) {
+            const filtered = adminProducts.filter(product => {
+                return product.name.toLowerCase().includes(query.toLowerCase()) ||
+                    product.category.toLowerCase().includes(query.toLowerCase()) ||
+                    product.id.includes(query);
+            });
+            renderProducts(filtered);
+        }
+
+        function resetSearch() {
+            searchInput.value = '';
+            renderProducts(adminProducts);
+        }
+
+        function editProduct(id) {
+            const product = adminProducts.find(item => item.id === id);
+            if (!product) return;
+            document.getElementById('productId').value = product.id;
+            document.getElementById('productName').value = product.name;
+            document.getElementById('productCategory').value = product.category;
+            document.getElementById('productPrice').value = product.price;
+            document.getElementById('productStock').value = product.stock;
+            document.getElementById('productNote').value = 'Chỉnh sửa thông tin sản phẩm.';
+            window.location.hash = '#inventory';
+        }
+
+        function removeProduct(id) {
+            const index = adminProducts.findIndex(product => product.id === id);
+            if (index >= 0 && confirm('Bạn có muốn xóa sản phẩm này không?')) {
+                adminProducts.splice(index, 1);
+                renderProducts(adminProducts);
+            }
+        }
+
+        document.getElementById('adminForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const id = document.getElementById('productId').value.trim();
+            const name = document.getElementById('productName').value.trim();
+            const category = document.getElementById('productCategory').value;
+            const price = Number(document.getElementById('productPrice').value);
+            const stock = Number(document.getElementById('productStock').value);
+            if (!id || !name) {
+                alert('Vui lòng điền đầy đủ mã và tên sản phẩm.');
+                return;
+            }
+
+            const existing = adminProducts.find(product => product.id === id);
+            if (existing) {
+                existing.name = name;
+                existing.category = category;
+                existing.price = price;
+                existing.stock = stock;
+                alert('Cập nhật sản phẩm thành công.');
+            } else {
+                adminProducts.push({ id, name, category, price, stock });
+                alert('Thêm sản phẩm mới thành công.');
+            }
+
+            renderProducts(adminProducts);
+            this.reset();
+        });
+
+        searchInput.addEventListener('input', function() {
+            filterProducts(this.value);
+        });
+
+        renderProducts(adminProducts);
+    </script>
+</body>
+</html>

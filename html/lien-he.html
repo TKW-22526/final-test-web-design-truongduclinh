@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-	<meta charset="UTF-8">
-	<title>Liên hệ</title>
-	<link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <title>Liên hệ</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-	<header class="site-header">
+    <header class="site-header">
         <div class="header-inner">
             <div class="site-brand">
                 <div class="logo"><img src="../assets/images/logo-duc-linh.svg" alt="Shop Thể Thao logo"></div>
                 <div>
-                    <h2 style="margin:0; font-size:20px">Liên hệ</h2>
+                    <h2 class="page-title">Liên hệ</h2>
                 </div>
             </div>
 
@@ -20,41 +20,82 @@
                     <li><a href="../index.html">Trang chủ</a></li>
                     <li><a href="san-pham.html">Sản phẩm</a></li>
                     <li><a href="gioi-thieu.html">Giới thiệu</a></li>
-                    <li><a href="lien-he.html">Liên hệ</a></li>
+                    <li><a href="lien-he.html" class="active">Liên hệ</a></li>
                     <li><a href="admin.html">Admin</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-	<main class="container py-4">
-		<section class="detail-card">
-			<form id="contactForm">
-				<div>
-					<label>Họ và tên</label>
-					<input type="text" id="name" class="form-control" required>
-				</div>
-				<div>
-					<label>Email</label>
-					<input type="email" id="email" class="form-control" required>
-				</div>
-				<div>
-					<label>Nội dung</label>
-					<textarea id="message" class="form-control" rows="5" required></textarea>
-				</div>
-				<div style="margin-top:12px;">
-					<button type="submit" class="buy-btn">Gửi</button>
-				</div>
-			</form>
-		</section>
-	</main>
+    <main class="container py-4">
+        <section class="contact-hero">
+            <div class="hero-copy">
+                <p class="eyebrow">Kết nối nhanh</p>
+                <h1>Gửi thắc mắc hoặc đặt hàng cùng chúng tôi</h1>
+                <p>Đội ngũ Shop Thể Thao sẵn sàng hỗ trợ bạn từ tư vấn sản phẩm đến hậu mãi. Hãy để lại thông tin, chúng tôi sẽ liên hệ lại trong thời gian sớm nhất.</p>
+            </div>
+        </section>
 
-	<script>
-		document.getElementById('contactForm').addEventListener('submit', function(e){
-			e.preventDefault();
-			alert('Cảm ơn ' + document.getElementById('name').value + '. Chúng tôi đã nhận được tin nhắn.');
-			this.reset();
-		});
-	</script>
+        <section class="contact-grid">
+            <div class="contact-card contact-summary">
+                <h2 class="card-title">Thông tin liên hệ</h2>
+                <p>Chúng tôi luôn sẵn sàng hỗ trợ bạn mọi lúc. Chọn kênh liên hệ phù hợp nhất để nhận tư vấn nhanh chóng.</p>
+
+                <div class="info-list">
+                    <div class="info-item">
+                        <span>📧</span>
+                        <div>
+                            <strong>Email hỗ trợ</strong>
+                            <p>ductruong@shopthethao.vn</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span>📞</span>
+                        <div>
+                            <strong>Hotline</strong>
+                            <p>0862137910</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span>🏬</span>
+                        <div>
+                            <strong>Địa chỉ</strong>
+                            <p>Ấp 4, Phong Thanh, TP Vĩnh Long</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-list">
+                    <div class="feature-badge">Tư vấn sản phẩm</div>
+                    <div class="feature-badge">Đổi trả nhanh</div>
+                    <div class="feature-badge">Giao hàng toàn quốc</div>
+                </div>
+            </div>
+
+            <div class="contact-card contact-form-card">
+                <h2 class="card-title">Gửi tin nhắn</h2>
+                <form id="contactForm">
+                    <label for="name">Họ và tên</label>
+                    <input type="text" id="name" class="form-control" placeholder="Nhập họ và tên" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="Nhập email" required>
+
+                    <label for="message">Nội dung</label>
+                    <textarea id="message" class="form-control" rows="6" placeholder="Viết nội dung cần hỗ trợ" required></textarea>
+
+                    <button type="submit" class="btn btn-primary">Gửi liên hệ</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e){
+            e.preventDefault();
+            alert('Cảm ơn ' + document.getElementById('name').value + '. Chúng tôi đã nhận được tin nhắn.');
+            this.reset();
+        });
+    </script>
 </body>
 </html>
